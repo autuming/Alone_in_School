@@ -14,6 +14,7 @@ using UnityEngine.Timeline;
  * 각 객체에 생성된 타임라인 이벤트를 모아
  * 한번에 관리하고 재생하는 스크립트입니다.
  */
+
 /// <summary>
 /// 작성일 :   2023-08-11 금요일
 /// 작성자 :   정현아 작성
@@ -30,10 +31,12 @@ public class Play_Event : MonoBehaviour
 
     public GameObject Event3;   // Event 3, 게임 오브젝트 할당 변수
     public GameObject Event4;   // Event 4, 게임 오브젝트 할당 변수
+    public GameObject Event5;   // Event 5, 게임 오브젝트 할당 변수
     private PlayableDirector Event3playableDirector;    // Event 3, 게임 오브젝트 내 PlayableDirector 컴포넌트를 저장할 변수
     private PlayableDirector Event4playableDirector;    // Event 4, 게임 오브젝트 내 PlayableDirector 컴포넌트를 저장할 변수
+    private PlayableDirector Event5playableDirector;    // Event 5, 게임 오브젝트 내 PlayableDirector 컴포넌트를 저장할 변수
 
-    private bool[] IsEventCall = new bool[2];   // 이벤트가 1회 호출되었는지 판단하기 위해 bool 형태의 배열을 선언
+    private bool[] IsEventCall = new bool[3];   // 이벤트가 1회 호출되었는지 판단하기 위해 bool 형태의 배열을 선언
     private int eventCount; // 모든 이벤트가 호출되었는지 확인하기 위해 정수형 변수를 선언
 
     void Start()
@@ -41,6 +44,7 @@ public class Play_Event : MonoBehaviour
         // 객체 내 PlayableDirector 할당
         Event3playableDirector = Event3.GetComponent<PlayableDirector>();
         Event4playableDirector = Event4.GetComponent<PlayableDirector>();
+        Event5playableDirector = Event5.GetComponent<PlayableDirector>();
     }
 
     void Update()
@@ -65,6 +69,16 @@ public class Play_Event : MonoBehaviour
             }
             Invoke("IsEventAllDone", 22.0f);    // 22초 딜레이 후(Event 4번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
         }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (IsEventCall[2] == false)
+            {
+                Event5playableDirector.Play();
+                IsEventCall[2] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
+            }
+            Invoke("IsEventAllDone", 20.7f);    // 20.7초 딜레이 후(Event 5번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
+        }
     }
 
     private void IsEventAllDone()   // 모든 이벤트가 호출되었는지 판단하는 메소드
@@ -77,7 +91,7 @@ public class Play_Event : MonoBehaviour
             }
         }
 
-        if (eventCount >= 2)    // eventCount가 씬 내 배치된 이벤트 수와 같거나 크다면, 게임을 종료하기 위해 EndScene으로 이동
+        if (eventCount >= 3)    // eventCount가 씬 내 배치된 이벤트 수와 같거나 크다면, 게임을 종료하기 위해 EndScene으로 이동
         {
             SceneManager.LoadScene("EndScene");
         }
