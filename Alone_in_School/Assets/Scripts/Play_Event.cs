@@ -57,7 +57,7 @@ public class Play_Event : MonoBehaviour
                 Event3playableDirector.Play(); // ==> 타임라인 이벤트 재생
                 IsEventCall[0] = true;  // 1회 호출되었기에 0번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
             }
-            Invoke("IsEventAllDone", 13.0f);    // 13초 딜레이 후(Event 3번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
+            //Invoke("IsEventAllDone", 13.0f);    // 13초 딜레이 후(Event 3번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
         }
 
         if(Input.GetKeyDown(KeyCode.F))
@@ -67,7 +67,7 @@ public class Play_Event : MonoBehaviour
                 Event4playableDirector.Play();
                 IsEventCall[1] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
             }
-            Invoke("IsEventAllDone", 22.0f);    // 22초 딜레이 후(Event 4번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
+            //Invoke("IsEventAllDone", 22.0f);    // 22초 딜레이 후(Event 4번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
         }
 
         if (Input.GetKeyDown(KeyCode.D))
@@ -77,7 +77,7 @@ public class Play_Event : MonoBehaviour
                 Event5playableDirector.Play();
                 IsEventCall[2] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
             }
-            Invoke("IsEventAllDone", 20.7f);    // 20.7초 딜레이 후(Event 5번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
+            //Invoke("IsEventAllDone", 20.7f);    // 20.7초 딜레이 후(Event 5번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
         }
     }
 
