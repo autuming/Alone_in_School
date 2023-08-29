@@ -68,7 +68,7 @@ public class Play_Event : MonoBehaviour
                     Event3playableDirector.Play(); 
                     IsEventCall[1] = true;  // 1회 호출되었기에 0번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
                 }
-                Invoke("IsEventAllDone", (float)Event3playableDirector.duration);    // 13초 딜레이 후(Event 3번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
+                Invoke("IsEventAllDone", (float)Event3playableDirector.duration);    // (float)Event3playableDirector.duration == 이벤트 총 재생시간, 이벤트가 끝나면  IsEventAllDone 메소드를 호출함
                 break;
 
             case "d":
@@ -78,7 +78,7 @@ public class Play_Event : MonoBehaviour
                     Event5playableDirector.Play();
                     IsEventCall[2] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
                 }
-                Invoke("IsEventAllDone", (float)Event5playableDirector.duration);    // (float)Event5playableDirector.duration == 이벤트 재생시간, 이벤트가 끝나면 IsEventAllDone 메소드를 호출함
+                Invoke("IsEventAllDone", (float)Event5playableDirector.duration);    // (float)Event5playableDirector.duration == 이벤트 총 재생시간, 이벤트가 끝나면 IsEventAllDone 메소드를 호출함
                 break;
 
             case "f":
@@ -88,7 +88,7 @@ public class Play_Event : MonoBehaviour
                     Event4playableDirector.Play();
                     IsEventCall[3] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
                 }
-                Invoke("IsEventAllDone", (float)Event4playableDirector.duration);    // 22초 딜레이 후(Event 4번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
+                Invoke("IsEventAllDone", (float)Event4playableDirector.duration);    // (float)Event4playableDirector.duration == 이벤트 총 재생시간, IsEventAllDone 메소드를 호출함
                 break;
 
             case "g":
@@ -98,7 +98,7 @@ public class Play_Event : MonoBehaviour
                     Event1playableDirector.Play();
                     IsEventCall[4] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
                 }
-                Invoke("IsEventAllDone", (float)Event1playableDirector.duration);    // 22초 딜레이 후(Event 4번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
+                Invoke("IsEventAllDone", (float)Event1playableDirector.duration);    // (float)Event1playableDirector.duration == 이벤트 총 재생시간, IsEventAllDone 메소드를 호출함
                 break;
 
             default:
