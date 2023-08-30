@@ -1,12 +1,8 @@
 using JetBrains.Annotations;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-//using UnityEditor.PackageManager;
 using UnityEngine;
-using UnityEngine.Playables;
-using UnityEngine.UI;
 
 public class HA_TextUI : MonoBehaviour
 {
@@ -17,39 +13,14 @@ public class HA_TextUI : MonoBehaviour
 
     // 출력하는 자막의 순서를 조정하는 배열의 인덱스를 저장하는 변수
     // 이벤트별로 변수를 달리해야 할 듯 *다른 메소드에서 똑같은 변수를 사용할 경우, 초기화 위치가 애매함, 메소드 처음에 초기화를 하면 호출할 때마다 0으로 초기화 되기 때문에 인덱스 증가 안됨*
-    private int countEvent0 = 0;
     private int countEvent4 = 0;
 
-    private void Start()
+    private void Update()
     {
         lines = linesObject.GetComponent<TextMesh>(); // 텍스트 오브젝트의 TextMesh 컴포넌트를 찾아서 할당함
     }
 
-    public void TextEvent0()
-    {
-        diglogue = new string[] { "...졸리다", "한 숨 자고 싶은데", "수업까지 시간이 남았으니 좀 자볼까...", "(책상에 엎드려 잠을 잔다)" };
-        lines.text = diglogue[countEvent0];
-
-        Color color = lines.color;
-        color.a = 255f;
-        lines.color = color;
-
-        countEvent0++;
-    }
-
-    public void TextEvent2()
-    {
-        diglogue = new string[] { "...왼쪽 창문에서 두드리는 소리가 들린다\n(왼쪽 창문을 바라보자)", "오른쪽 옆자리에서 오르골 소리가 들린다...\n(오른쪽 옆자리를 바라보자)" };
-        lines.text = diglogue[countEvent0];
-
-        Color color = lines.color;
-        color.a = 255f;
-        lines.color = color;
-
-        countEvent0++;
-    }
-
-    public void TextEvent4()    // 이벤트별로 메소드 관리 -> 해당 메소드는 Event4번에 해당하는 자막을 출력하는 것으로, 시그널로 출력될 때마다 인덱스 번호가 +1 됨
+    public void Event4()    // 이벤트별로 메소드 관리 -> 해당 메소드는 Event4번에 해당하는 자막을 출력하는 것으로, 시그널로 출력될 때마다 인덱스 번호가 +1 됨
     {
         diglogue = new string[] { "이게 무슨 소리지?", "학교에 또 누가 있는거 같은데", "TEST01" }; // 배열에 Event4에 필요한 대사를 배열에 저장
         lines.text = diglogue[countEvent4]; // TestMesh의 Text에 countEvent4번에 따른 배열의 인수를 넣음
