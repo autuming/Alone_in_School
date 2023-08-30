@@ -28,13 +28,14 @@ using UnityEngine.Timeline;
 
 public class Play_Event : MonoBehaviour
 {
-    public GameObject Event1;   // Event 1, 게임 오브젝트 할당 변수
-    public GameObject Event2;   // Event 2, 게임 오브젝트 할당 변수
+
     public GameObject Event3;   // Event 3, 게임 오브젝트 할당 변수
     public GameObject Event4;   // Event 4, 게임 오브젝트 할당 변수
     public GameObject Event5;   // Event 5, 게임 오브젝트 할당 변수
-    private PlayableDirector Event1playableDirector;    // Event 1, 게임 오브젝트 내 PlayableDirector 컴포넌트를 저장할 변수
-    private PlayableDirector Event2playableDirector;    // Event 2, 게임 오브젝트 내 PlayableDirector 컴포넌트를 저장할 변수
+
+    public GameObject Event2WindowSound;
+    public GameObject Event2_1Trigger;
+
     private PlayableDirector Event3playableDirector;    // Event 3, 게임 오브젝트 내 PlayableDirector 컴포넌트를 저장할 변수
     private PlayableDirector Event4playableDirector;    // Event 4, 게임 오브젝트 내 PlayableDirector 컴포넌트를 저장할 변수
     private PlayableDirector Event5playableDirector;    // Event 5, 게임 오브젝트 내 PlayableDirector 컴포넌트를 저장할 변수
@@ -42,108 +43,63 @@ public class Play_Event : MonoBehaviour
     private bool[] IsEventCall = new bool[5];   // 이벤트가 1회 호출되었는지 판단하기 위해 bool 형태의 배열을 선언
     private int eventCount; // 모든 이벤트가 호출되었는지 확인하기 위해 정수형 변수를 선언
 
+    private HA_TextUI textUI;
+
     void Start()
     {
         // 객체 내 PlayableDirector 할당
-        Event1playableDirector = Event1.GetComponent<PlayableDirector>();
-        Event2playableDirector = Event2.GetComponent<PlayableDirector>();
         Event3playableDirector = Event3.GetComponent<PlayableDirector>();
         Event4playableDirector = Event4.GetComponent<PlayableDirector>();
         Event5playableDirector = Event5.GetComponent<PlayableDirector>();
+
+        textUI = gameObject.GetComponent<HA_TextUI>();
     }
 
     void Update()
     {
-        switch (Input.inputString)
+        // 특정 키를 입력하면 이벤트가 재생
+
+        /*
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            case "a":
-                // 똑, 똑, 똑
-                IsEventCall[0] = true;
-                break;
+            if (IsEventCall[1] == false)
+            {
+                Event2WindowSound.SetActive(true);
+                Event2_1Trigger.SetActive(true);
+                textUI.TextEvent2();
+            }
+        }
+        */
 
-            case "s":
-                // 옆자리 친구
-                if (IsEventCall[1] == false)
-                {
-                    Event3playableDirector.Play(); 
-                    IsEventCall[1] = true;  // 1회 호출되었기에 0번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
-                }
-                Invoke("IsEventAllDone", (float)Event3playableDirector.duration);    // (float)Event3playableDirector.duration == 이벤트 총 재생시간, 이벤트가 끝나면  IsEventAllDone 메소드를 호출함
-                break;
-
-            case "d":
-                // 귀신의 방문
-                if (IsEventCall[2] == false)
-                {
-                    Event5playableDirector.Play();
-                    IsEventCall[2] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
-                }
-                Invoke("IsEventAllDone", (float)Event5playableDirector.duration);    // (float)Event5playableDirector.duration == 이벤트 총 재생시간, 이벤트가 끝나면 IsEventAllDone 메소드를 호출함
-                break;
-
-            case "f":
-                // 밤 중의 발소리
-                if (IsEventCall[3] == false)
-                {
-                    Event4playableDirector.Play();
-                    IsEventCall[3] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
-                }
-                Invoke("IsEventAllDone", (float)Event4playableDirector.duration);    // (float)Event4playableDirector.duration == 이벤트 총 재생시간, IsEventAllDone 메소드를 호출함
-                break;
-
-            case "g":
-                // 복도에서...
-                if (IsEventCall[4] == false)
-                {
-                    Event1playableDirector.Play();
-                    IsEventCall[4] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
-                }
-                Invoke("IsEventAllDone", (float)Event1playableDirector.duration);    // (float)Event1playableDirector.duration == 이벤트 총 재생시간, IsEventAllDone 메소드를 호출함
-                break;
-
-            default:
-                break;
+        if (Input.GetKeyDown(KeyCode.D)) // ==> 향후에 블루투스 입력 부분을 넣으면 될 듯?
+        {
+            if (IsEventCall[2] == false)
+            {
+                Event3playableDirector.Play(); // ==> 타임라인 이벤트 재생
+                IsEventCall[2] = true;  // 1회 호출되었기에 0번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
+            }
+            //Invoke("IsEventAllDone", 13.0f);    // 13초 딜레이 후(Event 3번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
         }
 
-        //if (Input.GetKeyDown(KeyCode.G))
-        //{
-        //    if (IsEventCall[3] == false)
-        //    {
-        //        Event1playableDirector.Play();
-        //        IsEventCall[3] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
-        //    }
-        //    // Invoke("IsEventAllDone", 30.0f);    // 20.7초 딜레이 후(Event 5번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
-        //}
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            if (IsEventCall[3] == false)
+            {
+                Event4playableDirector.Play();
+                IsEventCall[3] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
+            }
+            //Invoke("IsEventAllDone", 22.0f);    // 22초 딜레이 후(Event 4번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
+        }
 
-        //if (Input.GetKeyDown(KeyCode.A)) 
-        //{
-        //    if (IsEventCall[0] == false)
-        //    {
-        //        Event3playableDirector.Play(); // ==> 타임라인 이벤트 재생
-        //        IsEventCall[0] = true;  // 1회 호출되었기에 0번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
-        //    }
-        //    // Invoke("IsEventAllDone", 20.0f);    // 13초 딜레이 후(Event 3번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
-        //}
-
-        //if(Input.GetKeyDown(KeyCode.F))
-        //{
-        //    if (IsEventCall[1] == false)
-        //    {
-        //        Event4playableDirector.Play();
-        //        IsEventCall[1] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
-        //    }
-        //    // Invoke("IsEventAllDone", 22.0f);    // 22초 딜레이 후(Event 4번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.D))
-        //{
-        //    if (IsEventCall[2] == false)
-        //    {
-        //        Event5playableDirector.Play();
-        //        IsEventCall[2] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
-        //    }
-        //    // Invoke("IsEventAllDone", 20.7f);    // 20.7초 딜레이 후(Event 5번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
-        //}
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            if (IsEventCall[4] == false)
+            {
+                Event5playableDirector.Play();
+                IsEventCall[4] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
+            }
+            //Invoke("IsEventAllDone", 20.7f);    // 20.7초 딜레이 후(Event 5번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
+        }
     }
 
     private void IsEventAllDone()   // 모든 이벤트가 호출되었는지 판단하는 메소드
@@ -156,7 +112,7 @@ public class Play_Event : MonoBehaviour
             }
         }
 
-        if (eventCount >= IsEventCall.Length)    // eventCount가 씬 내 배치된 이벤트 수와 같거나 크다면, 게임을 종료하기 위해 EndScene으로 이동
+        if (eventCount >= 3)    // eventCount가 씬 내 배치된 이벤트 수와 같거나 크다면, 게임을 종료하기 위해 EndScene으로 이동
         {
             SceneManager.LoadScene("EndScene");
         }
