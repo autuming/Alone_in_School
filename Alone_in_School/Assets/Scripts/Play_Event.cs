@@ -57,32 +57,32 @@ public class Play_Event : MonoBehaviour
         switch (Input.inputString)
         {
             case "a":
-                // 똑, 똑, 똑
-                IsEventCall[0] = true;
+                // 복도에서...
+                if (IsEventCall[0] == false)
+                {
+                    Event1playableDirector.Play();
+                    IsEventCall[0] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
+                }
+                Invoke("IsEventAllDone", (float)Event1playableDirector.duration);    // (float)Event1playableDirector.duration == 이벤트 총 재생시간, IsEventAllDone 메소드를 호출함
                 break;
 
             case "s":
+                // 누군가의 생일 파티
+                IsEventCall[1] = true;
+                break;
+
+            case "d":
                 // 옆자리 친구
-                if (IsEventCall[1] == false)
+                if (IsEventCall[2] == false)
                 {
-                    Event3playableDirector.Play(); 
-                    IsEventCall[1] = true;  // 1회 호출되었기에 0번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
+                    Event3playableDirector.Play();
+                    IsEventCall[2] = true;  // 1회 호출되었기에 0번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
                 }
                 Invoke("IsEventAllDone", (float)Event3playableDirector.duration);    // (float)Event3playableDirector.duration == 이벤트 총 재생시간, 이벤트가 끝나면  IsEventAllDone 메소드를 호출함
                 break;
 
-            case "d":
-                // 귀신의 방문
-                if (IsEventCall[2] == false)
-                {
-                    Event5playableDirector.Play();
-                    IsEventCall[2] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
-                }
-                Invoke("IsEventAllDone", (float)Event5playableDirector.duration);    // (float)Event5playableDirector.duration == 이벤트 총 재생시간, 이벤트가 끝나면 IsEventAllDone 메소드를 호출함
-                break;
-
             case "f":
-                // 밤 중의 발소리
+                // 귀신의 방문
                 if (IsEventCall[3] == false)
                 {
                     Event4playableDirector.Play();
@@ -92,16 +92,17 @@ public class Play_Event : MonoBehaviour
                 break;
 
             case "g":
-                // 복도에서...
+                // 밤 중의 발소리
                 if (IsEventCall[4] == false)
                 {
-                    Event1playableDirector.Play();
+                    Event5playableDirector.Play();
                     IsEventCall[4] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
                 }
-                Invoke("IsEventAllDone", (float)Event1playableDirector.duration);    // (float)Event1playableDirector.duration == 이벤트 총 재생시간, IsEventAllDone 메소드를 호출함
+                Invoke("IsEventAllDone", (float)Event5playableDirector.duration);    // (float)Event5playableDirector.duration == 이벤트 총 재생시간, 이벤트가 끝나면 IsEventAllDone 메소드를 호출함
                 break;
 
             default:
+
                 break;
         }
 
@@ -148,6 +149,8 @@ public class Play_Event : MonoBehaviour
 
     private void IsEventAllDone()   // 모든 이벤트가 호출되었는지 판단하는 메소드
     {
+        eventCount = 0;
+
         for(int i = 0; i < IsEventCall.Length; i++) // 각 이벤트마다 1회 호출되었는지 판단하는 배열에 담겨있는 원소의 값을 비교하는 조건문
         {
             if (IsEventCall[i]) // 만약 원소의 값이 true라면, 즉 1회 호출되었다면 eventCount 수를 1씩 증가
