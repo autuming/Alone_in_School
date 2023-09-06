@@ -18,22 +18,10 @@ public class HA_Effect : MonoBehaviour
 
     private void Update()   // 해당 부분은 논의가 필요, 만약 모든 씬에서 해당 키를 누르면 게임이 종료되거나 씬이 이동됨, 유용할 수 있지만 실수로 누를 가능성도 있음
     {
-        /*
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             SceneManager.LoadScene("BeforeScene");
         }
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            Application.Quit();
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            SceneManager.LoadScene("StartScene");
-        }
-        */
 
         if(Input.GetKeyDown(KeyCode.P))
         {
