@@ -159,6 +159,8 @@ PlayableDirector:
     value: {fileID: 1817590476}
   - key: {fileID: -3272425656719197196, guid: be5b3db3a7864bc44b0c5f5a0934b971, type: 2}
     value: {fileID: 0}
+  - key: {fileID: -5769677093286136703, guid: be5b3db3a7864bc44b0c5f5a0934b971, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &197812689
@@ -747,9 +749,9 @@ GameObject:
   - component: {fileID: 1817590482}
   - component: {fileID: 1817590481}
   - component: {fileID: 1817590480}
-  - component: {fileID: 1817590485}
   - component: {fileID: 1817590479}
   - component: {fileID: 1817590478}
+  - component: {fileID: 1817590485}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera

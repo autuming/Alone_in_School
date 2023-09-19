@@ -10413,6 +10413,11 @@ PrefabInstance:
       propertyPath: EventplayableDirector
       value: 
       objectReference: {fileID: 1625124965}
+    - target: {fileID: 5854682870796125754, guid: e2868d0480a42744da7ccc646391af9d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.523
+      objectReference: {fileID: 0}
     - target: {fileID: 7579624887231872281, guid: e2868d0480a42744da7ccc646391af9d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21633,7 +21638,7 @@ Skybox:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033719406}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_CustomSkybox: {fileID: 2100000, guid: 400d8db5104338b428633f2079c1b88e, type: 2}
 --- !u!114 &1033719409
 MonoBehaviour:
   m_ObjectHideFlags: 0

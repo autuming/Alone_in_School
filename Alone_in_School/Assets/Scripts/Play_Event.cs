@@ -28,7 +28,7 @@ using UnityEngine.Timeline;
 
 public class Play_Event : MonoBehaviour
 {
-
+    public GameObject Event1;
     public GameObject Event3;   // Event 3, 게임 오브젝트 할당 변수
     public GameObject Event4;   // Event 4, 게임 오브젝트 할당 변수
     public GameObject Event5;   // Event 5, 게임 오브젝트 할당 변수
@@ -36,6 +36,7 @@ public class Play_Event : MonoBehaviour
     public GameObject Event2WindowSound;
     public GameObject Event2_1Trigger;
 
+    private PlayableDirector Event1playableDirector;
     private PlayableDirector Event3playableDirector;    // Event 3, 게임 오브젝트 내 PlayableDirector 컴포넌트를 저장할 변수
     private PlayableDirector Event4playableDirector;    // Event 4, 게임 오브젝트 내 PlayableDirector 컴포넌트를 저장할 변수
     private PlayableDirector Event5playableDirector;    // Event 5, 게임 오브젝트 내 PlayableDirector 컴포넌트를 저장할 변수
@@ -48,6 +49,7 @@ public class Play_Event : MonoBehaviour
     void Start()
     {
         // 객체 내 PlayableDirector 할당
+        Event1playableDirector = Event1.GetComponent<PlayableDirector>();
         Event3playableDirector = Event3.GetComponent<PlayableDirector>();
         Event4playableDirector = Event4.GetComponent<PlayableDirector>();
         Event5playableDirector = Event5.GetComponent<PlayableDirector>();
@@ -58,6 +60,15 @@ public class Play_Event : MonoBehaviour
     void Update()
     {
         // 특정 키를 입력하면 이벤트가 재생
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            if (IsEventCall[0] == false)
+            {
+                Event1playableDirector.Play(); // ==> 타임라인 이벤트 재생
+                IsEventCall[0] = true;
+            }
+            Invoke("IsEventAllDone", 25.0f);
+        }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
@@ -75,7 +86,7 @@ public class Play_Event : MonoBehaviour
                 Event3playableDirector.Play(); // ==> 타임라인 이벤트 재생
                 IsEventCall[2] = true;  // 1회 호출되었기에 0번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
             }
-            //Invoke("IsEventAllDone", 13.0f);    // 13초 딜레이 후(Event 3번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
+            Invoke("IsEventAllDone", 20.0f);    // 13초 딜레이 후(Event 3번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
         }
 
         if(Input.GetKeyDown(KeyCode.F))
@@ -85,7 +96,7 @@ public class Play_Event : MonoBehaviour
                 Event4playableDirector.Play();
                 IsEventCall[3] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
             }
-            //Invoke("IsEventAllDone", 22.0f);    // 22초 딜레이 후(Event 4번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
+            Invoke("IsEventAllDone", 25.0f);    // 22초 딜레이 후(Event 4번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
         }
 
         if (Input.GetKeyDown(KeyCode.G))
@@ -95,13 +106,14 @@ public class Play_Event : MonoBehaviour
                 Event5playableDirector.Play();
                 IsEventCall[4] = true;  // 1회 호출되었기에 1번 인덱스의 값을 true로 저장함 => 추후 각 이벤트 번호에 맞는 인덱스 할당할 예정
             }
-            //Invoke("IsEventAllDone", 20.7f);    // 20.7초 딜레이 후(Event 5번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
+            Invoke("IsEventAllDone", 25.0f);    // 20.7초 딜레이 후(Event 5번이 완료하는데 걸리는 시간) IsEventAllDone 메소드를 호출함
         }
     }
 
     private void IsEventAllDone()   // 모든 이벤트가 호출되었는지 판단하는 메소드
     {
-        for(int i = 0; i < IsEventCall.Length; i++) // 각 이벤트마다 1회 호출되었는지 판단하는 배열에 담겨있는 원소의 값을 비교하는 조건문
+        eventCount = 0;
+        for (int i = 0; i < IsEventCall.Length; i++) // 각 이벤트마다 1회 호출되었는지 판단하는 배열에 담겨있는 원소의 값을 비교하는 조건문
         {
             if (IsEventCall[i]) // 만약 원소의 값이 true라면, 즉 1회 호출되었다면 eventCount 수를 1씩 증가
             {
@@ -109,11 +121,18 @@ public class Play_Event : MonoBehaviour
             }
         }
 
-        if (eventCount >= 3)    // eventCount가 씬 내 배치된 이벤트 수와 같거나 크다면, 게임을 종료하기 위해 EndScene으로 이동
+        if (eventCount >= 5)    // eventCount가 씬 내 배치된 이벤트 수와 같거나 크다면, 게임을 종료하기 위해 EndScene으로 이동
         {
             SceneManager.LoadScene("EndScene");
         }
         else
             Debug.Log("이벤트 남아있음");  // 디버깅을 위해 넣은 로그로 추후 삭제 예정
+    }
+
+    public void Event2End()
+    {
+        IsEventCall[1] = true;
+        IsEventAllDone();
+        Debug.Log("이벤트 2번 호출됨");
     }
 }
