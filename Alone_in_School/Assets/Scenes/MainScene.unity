@@ -22304,11 +22304,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Event1: {fileID: 785895011}
+  Event2_1: {fileID: 1282111414}
+  Event2_2: {fileID: 1665734457}
   Event3: {fileID: 1505540271}
   Event4: {fileID: 1682494776}
   Event5: {fileID: 1633001981}
   Event2WindowSound: {fileID: 962744989}
   Event2_1Trigger: {fileID: 692606624}
+  Event2_2Trigger: {fileID: 1858290078}
 --- !u!1001 &1116470089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25857,6 +25860,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5396418892969716062, guid: 2439422bf28c0714387a2ea79773444c,
     type: 3}
   m_PrefabInstance: {fileID: 1370926832}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1282111414 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8155377183214740021, guid: b2c08e257364f914182bbcb07377ee12,
+    type: 3}
+  m_PrefabInstance: {fileID: 1782325949}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1283979761
 PrefabInstance:
@@ -34185,6 +34194,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1319587629}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1665734457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2761689195746257809, guid: 503e63f7be2754b4183948e13dbb2f1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 863024399}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1666964342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34629,7 +34644,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a77c11fd09ad5ca45888bbb0285fc7d4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.054
+      value: 4.984
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a77c11fd09ad5ca45888bbb0285fc7d4,
         type: 3}
@@ -34689,7 +34704,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a77c11fd09ad5ca45888bbb0285fc7d4,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37427,6 +37442,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Event2_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8592920672776651685, guid: b2c08e257364f914182bbcb07377ee12,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8938518808541714719, guid: b2c08e257364f914182bbcb07377ee12,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8938518808541714719, guid: b2c08e257364f914182bbcb07377ee12,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8938518808541714719, guid: b2c08e257364f914182bbcb07377ee12,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
