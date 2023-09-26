@@ -4,14 +4,14 @@
   2023년 7월부터 9월까지, 약 3개월 기간 동안 체험형 VR 공포게임과 모바일 러닝게임을 개발하였다. 9월 20일~21일에 있는 학교 축제에 동아리 부스를 열었고 이틀 간 약 50팀이 넘게 부스에 방문하여 VR 공포게임을 즐겼다. 설문을 통해 확인한 결과, '매우 좋음' 집계가 가장 높은 것을 확인하였다.<br>
 
 <div align="center">
-  <img src="https://github.com/JeongHyunah/Alone_in_School/assets/104128693/c481a3e7-5d16-40ea-958b-cbf4def0733e" 
-    alt="게임 시작 화면"><br><br>
+  <img src="https://github.com/Autuming/Alone_in_School/assets/104128693/09fe9a92-a182-4063-a4c7-ed38b89801d8" 
+    alt="부스 설문조사 결과"><br><br>
   <a href="https://www.instagram.com/p/Cxic-WDLE-u/?utm_source=ig_web_copy_link">👆 인스타그램 보러가기</a>
 </div>
 
 ## YOUTUBE
 <div align="center">
-  <img src="https://github.com/JeongHyunah/Alone_in_School/assets/104128693/925e5bdc-eeaa-4fbf-9f5b-5d6e84c0e426" 
+  <img src="https://github.com/Autuming/Alone_in_School/assets/104128693/71b16659-dbba-47eb-9f4b-d3441b844a23" 
     alt="게임 시작 화면"><br><br>
   <a href="https://youtu.be/RGsxJjlq_1A">👆 플레이 영상 보러 가기</a>
 </div>
@@ -32,8 +32,8 @@ VR 기기는 스마트폰을 연결해 사용하는 HMD로 해당 스마트폰�
 - 게임 문서<br>
 
 <div align="center">
-    <img src="https://github.com/JeongHyunah/Alone_in_School/assets/104128693/9329bb6b-51c7-4fff-b687-0f2e558638d7" width="640" height="360" alt="게임 내 이벤트 안내"><br>
-    <img src="https://github.com/JeongHyunah/Alone_in_School/assets/104128693/2a424c54-5912-4cc8-bd56-1bb9b67dbec7" width="640" height="360" alt="VR 기기 사용 안내"><br>
+    <img src="https://github.com/Autuming/Alone_in_School/assets/104128693/39100660-7d15-400d-a13f-1ba45ae5ae09" width="640" height="360" alt="게임 내 이벤트 안내"><br>
+    <img src="https://github.com/Autuming/Alone_in_School/assets/104128693/261a8cf1-3fa3-421a-8e2b-3098a591bf32" width="640" height="360" alt="VR 기기 사용 안내"><br>
 </div>
 
 ***
