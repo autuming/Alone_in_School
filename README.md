@@ -13,7 +13,7 @@
 <div align="center">
   <img src="https://github.com/Autuming/Alone_in_School/assets/104128693/71b16659-dbba-47eb-9f4b-d3441b844a23" 
     alt="게임 시작 화면"><br><br>
-  <a href="https://youtu.be/RGsxJjlq_1A">👆 플레이 영상 보러 가기</a>
+  <a href="https://www.youtube.com/@inhagamemakers">👆 이칠승 유튜브 놀러가기</a>
 </div>
 
 ## Team
