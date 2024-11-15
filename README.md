@@ -1,7 +1,9 @@
-# "Alone in School" VR Horror Game
+# "Alone in School" Android VR Horror Game
 - 활동 요약<br>
 
-  2023년 7월부터 9월까지, 약 3개월 기간 동안 체험형 VR 공포게임과 모바일 러닝게임을 개발하였다. 9월 20일~21일에 있는 학교 축제에 동아리 부스를 열었고 이틀 간 약 50팀이 넘게 부스에 방문하여 VR 공포게임을 즐겼다. 설문을 통해 확인한 결과, '매우 좋음' 집계가 가장 높은 것을 확인하였다.<br>
+"나 홀로 학교에..."는 안드로이드 기반의 VR 공포게임입니다. <br>
+
+해당 프로젝트는 6월에 시작되어 9월까지 약 3개월에 걸쳐 진행되었으며, 9월 20일 ~ 21일 진행되었던 
 
 <div align="center">
   <img src="https://github.com/Autuming/Alone_in_School/assets/104128693/09fe9a92-a182-4063-a4c7-ed38b89801d8" 
